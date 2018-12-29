@@ -6,4 +6,5 @@ class MembersController < ApplicationController
   def show
     render json: Member.find(params[:id])
   end
+
 end

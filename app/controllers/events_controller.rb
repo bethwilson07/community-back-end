@@ -6,4 +6,24 @@ class EventsController < ApplicationController
   def show
     render json: Event.find(params[:id])
   end
+
+  def create
+    render json: Event.create(event_params)
+  end
+
+  def update
+    Event.find(params[:id]).update(event_params)
+    render json: Event.find(params[:id])
+  end
+
+  def destroy
+    render json: Event.find(params[:id]).destroy
+  end
+
+  private
+    def event_params
+      params.require(:event).permit(:id, :name, :description, :location,
+        :latitude, :longitude, :when, :group_id)
+    end
+
 end

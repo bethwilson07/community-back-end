@@ -23,7 +23,7 @@ class MemberEventsController < ApplicationController
 
   private
     def memberEvent_params
-      params.require(:member).permit(:id, :member_id, :event_id,
+      params.require(:member_event).permit(:id, :member_id, :event_id,
         :organizer, :status)
     end
 

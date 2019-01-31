@@ -12,7 +12,7 @@ class MemberEventsController < ApplicationController
     @member = Member.find(memberEvent_params[:member_event][:member_id])
     @member.events.create(memberEvent_params[:event])
     @member.member_events.last.update(memberEvent_params[:member_event])
-    render json: @member.events.last, :include => [:member_events]
+    render json: @member.events.last, include: :member_events
   end
 
   def update
